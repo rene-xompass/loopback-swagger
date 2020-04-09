@@ -1,5 +1,5 @@
 {
-  "name": "loopback-swagger",
+  "name": "xompass-loopback-swagger",
   "version": "5.8.1",
   "description": "Integration between LoopBack and Swagger API specs",
   "engines": {

@@ -1,3 +1,5 @@
+This is a fork of loopback swagger
+
 # loopback-swagger
 
 **⚠️ LoopBack 3 is in Maintenance LTS mode, only critical bugs and critical

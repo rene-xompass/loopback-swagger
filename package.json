@@ -13,7 +13,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/strongloop/loopback-swagger.git"
+    "url": "git://github.com/xompass/loopback-swagger.git"
   },
   "keywords": [
     "StrongLoop Labs",
@@ -24,7 +24,7 @@
   "author": "IBM Corp.",
   "readmeFilename": "README.md",
   "bugs": {
-    "url": "https://github.com/strongloop/loopback-swagger/issues"
+    "url": "https://github.com/xompass/loopback-swagger/issues"
   },
   "devDependencies": {
     "chai": "^4.1.2",

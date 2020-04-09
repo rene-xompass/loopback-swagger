@@ -422,11 +422,11 @@ describe('swagger definition', function() {
         var swaggerResource = createSwaggerObject(app, {
           generateOperationScopedModels: true,
         });
-          // Additional swagger object - $new_Product is generated since Product
+          // Additional swagger object - __new_Product is generated since Product
           // model has generated ID and forceId is not set to false. This object
           // is used for create operation where it excludes 'id' property
         expect(Object.keys(swaggerResource.definitions))
-          .to.include.members(['$new_Product', 'Product']);
+          .to.include.members(['__new_Product', 'Product']);
       });
 
     it('should generate two swagger model definitions when forceId is true', function() {
@@ -437,11 +437,11 @@ describe('swagger definition', function() {
       var swaggerResource = createSwaggerObject(app, {
         generateOperationScopedModels: true,
       });
-      // Additional swagger object - $new_Product is generated since Product
+      // Additional swagger object - __new_Product is generated since Product
       // model has generated ID and forceId is not set to false. This object
       // is used for create operation where it excludes 'id' property
       expect(Object.keys(swaggerResource.definitions))
-        .to.include.members(['$new_Product', 'Product']);
+        .to.include.members(['__new_Product', 'Product']);
     });
 
     it('should generate one swagger model definition when forceId is false', function() {
@@ -453,20 +453,20 @@ describe('swagger definition', function() {
         generateOperationScopedModels: true,
       });
       expect(Object.keys(swaggerResource.definitions))
-        .to.not.include(['$new_Product']);
+        .to.not.include(['__new_Product']);
       expect(Object.keys(swaggerResource.definitions))
         .to.include.members(['Product']);
     });
 
-    it('should use $new_Product definition for post/create operation when ' +
+    it('should use __new_Product definition for post/create operation when ' +
         'forceId is in effect', function() {
       var app = createLoopbackAppWithModel();
       var swaggerResource = createSwaggerObject(app, {
         generateOperationScopedModels: true,
       });
-      // Post(create) operation should reference $new_Product
+      // Post(create) operation should reference __new_Product
       expect(swaggerResource.paths['/Products'].post.parameters[0].schema.$ref)
-        .to.equal('#/definitions/$new_Product');
+        .to.equal('#/definitions/__new_Product');
       // patch or any other operation should reference Product
       expect(swaggerResource.paths['/Products'].patch.parameters[0].schema.$ref)
         .to.equal('#/definitions/Product');
@@ -498,7 +498,7 @@ describe('swagger definition', function() {
       // when generateOperationScopedModels is false, then even if forceId is true and
       // generated id is true there will be only one model (Product) generated.
       expect(Object.keys(swaggerResource.definitions))
-        .to.not.include(['$new_Product']);
+        .to.not.include(['__new_Product']);
       expect(Object.keys(swaggerResource.definitions))
         .to.include.members(['Product']);
     });
@@ -511,7 +511,7 @@ describe('swagger definition', function() {
       // when generateOperationScopedModels is undefined the value defaults to false. Then even if
       // forceId is true and generated id is true there will be only one model (Product) generated.
       expect(Object.keys(swaggerResource.definitions))
-        .to.not.include(['$new_Product']);
+        .to.not.include(['__new_Product']);
       expect(Object.keys(swaggerResource.definitions))
         .to.include.members(['Product']);
     });

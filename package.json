@@ -1,6 +1,6 @@
 {
   "name": "xompass-loopback-swagger",
-  "version": "6.10.1",
+  "version": "6.10.2",
   "description": "Integration between LoopBack and Swagger API specs",
   "engines": {
     "node": ">=8"
